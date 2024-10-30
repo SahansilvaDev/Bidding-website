@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bid</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!--Stocks | New bid-->
+        <div class="col-sm-8">
+            <!--Stocks-->
+            <div class="row">
+                <div class="col">
+
+                    <h3 class="text-center">Available stocks</h3>
+
+                    <div class="px-2" style="overflow-y: scroll; overflow-x: hidden; height: 40vh">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">Stock code</th>
+                                <th scope="col">Stock name</th>
+                                <th scope="col">Last bid</th>
+                                <th scope="col">Profit</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Rs. 100</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="py-3"></div>
+
+            <div class="nav nav-tabs">
+                <div class="nav-item">
+                    <button id="bsb" onclick="toggle('sb')" class="nav-link active" href="#">Subscribe bids</button>
+                </div>
+                <div class="nav-item">
+                    <button id="bsi" onclick="toggle('si')" class="nav-link" href="#">Subscribe information</button>
+                </div>
+                <div class="nav-item">
+                    <button id="bpi" onclick="toggle('pi')" class="nav-link" href="#">Publish information</button>
+                </div>
+            </div>
+
+            <div class="p-1"></div>
+            <!--Subscribe bid-->
+            <div id="sb" class="row">
+                <div class="col">
+                    <form class="card p-3">
+                        <div class="card-header">
+                            Subscribe for bids
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label for="stock-code">Stock code:</label>
+                                        <input type="text" class="form-control" id="stock-code" placeholder="Stock code">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="py-2"></div>
+                                    <button type="submit" class="btn btn-primary float-end">Subscribe</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Subscribe info-->
+            <div id="si" class="row collapse">
+                <div class="col">
+                    <form class="card p-3">
+                        <div class="card-header">
+                            Subscribe for information
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <label for="stock-code">Stock code:</label>
+                                        <input type="text" class="form-control" id="stock-code-info" placeholder="Stock code">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="py-2"></div>
+                                    <button type="submit" class="btn btn-primary float-end">Subscribe</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Publish info-->
+            <div id="pi" class="row collapse">
+                <div class="col">
+                    <form class="card p-3">
+                        <div class="card-header">
+                            Publish information
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="stock-code-publish">Stock code:</label>
+                                        <input type="text" class="form-control" id="stock-code-publish" placeholder="Stock code">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="security-code-publish">Security code:</label>
+                                        <input type="text" class="form-control" id="security-code-publish" placeholder="Security code">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <label for="info">Information:</label>
+                                        <textarea type="text" class="form-control" id="info" placeholder="Information"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="py-3"></div>
+                                    <button type="submit" class="btn btn-primary float-end">Publish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--Notifications-->
+        <div class="col-sm-4">
+            <h3>Notifications</h3>
+            <hr class="col-sm-11 text-center"/>
+
+            <div class="px-2" style="height: 70vh; overflow-x: hidden; overflow-y: scroll">
+                <div class="card">
+                    <div class="card-body ">
+                        <p>By: 123 (2022/05/15 16:31)</p>
+                        Bid was changed to 123
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-1"></div>
+            <!--Go to pub sub-->
+            <div class="row">
+                <div class="col">
+                    <form class="card p-3">
+                        <a class="btn btn-success">
+                            <i class="fa fa-arrow-right"></i>
+                            Visit bidding page
+                        </a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+    let ids = ["sb", "si", "pi"];
+
+    function toggle(id) {
+
+        for (let i = 0; i < 3; i++) {
+            let a = ids[i];
+            document.getElementById(a).classList.remove("collapse");
+            document.getElementById(a).classList.add("collapse");
+
+            document.getElementById("b"+a).classList.remove("active");
+
+        }
+
+        document.getElementById(id).classList.remove("collapse");
+        document.getElementById("b"+id).classList.add("active");
+
+
+    }
+</script>
+
+</body>
+</html>

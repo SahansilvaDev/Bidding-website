@@ -1,0 +1,132 @@
+<%--
+
+<nav class="navbar navbar-expand-lg navbar-light"
+     style="background-color: #64c4a5;">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">
+            <img src="../../resources/img/logo.jpeg" alt="" width="50" height="50">
+            <p style="font-size: 16px;" class="text-white">Individual counselling sessions</p>
+        </a>
+
+        <ul class="nav justify-content-center">
+            <div class="collapse navbar-collapse"
+                 id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 20px">
+                    <li class="nav-item " >
+                        <a id="header-home" class="nav-link text-white text-lg-center" aria-current="page" href="/">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="header-talk-space" class="nav-link text-white text-md-center" href="/talk-space">
+                            Talk space
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="header-councilor" class="nav-link text-white text-md-center" href="/councilor">
+                            Councilor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="header-community" class="nav-link text-white text-md-center" href="/community">
+                            Community
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </ul>
+
+        <div class="justify-content-end">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a class="navbar-brand" href="/chat/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512">
+                            <path d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <div class="dropdown">
+                        <a class="navbar-brand" href="#" id="dropdown-notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 448 512">
+                                <path d="M439.39 362.29c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71zM67.53 368c21.22-27.97 44.42-74.33 44.53-159.42 0-.2-.06-.38-.06-.58 0-61.86 50.14-112 112-112s112 50.14 112 112c0 .2-.06.38-.06.58.11 85.1 23.31 131.46 44.53 159.42H67.53zM224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64z"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu " style="height: 45vh; overflow-y: scroll; right: 0; left: auto; width: 26vw; user-select: none">
+
+                            <c:forEach var="notification" items="${notifications}">
+
+
+&lt;%&ndash;                                ${notification.time}&ndash;%&gt;
+
+                                <a class="dropdown-item" href="${notification.link}">
+                                    <div class="row py-1">
+                                        <div class="col-sm-2">
+                                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                                                 class="rounded-circle mr-1" alt="Vanessa Tucker" width="40px" height="40px">
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="flex-grow-1 ml-3">
+                                                <b>${notification.title}</b>
+                                                <div class="small"><small>
+                                                        ${notification.text}
+                                                </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="small float-end">
+                                                <small>8.56 PM</small>
+                                            </div>
+&lt;%&ndash;
+                                            <br>
+                                            <div class="badge bg-success float-end"></div>
+&ndash;%&gt;
+                                        </div>
+
+
+                                    </div>
+                                </a>
+
+
+                            </c:forEach>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="dropdown">
+                        <a class="navbar-brand" id="dropdown-profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="${login.base64Img}" class="rounded-circle"
+                                 alt="" width="50" height="50">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-profile">
+                            <a class="dropdown-item" href="/profile/">Profile</a>
+                            <c:choose>
+                                <c:when test="${login.type == 3}">
+                                    <a class="dropdown-item" href="/admin/">Admin</a>
+                                </c:when>
+                            </c:choose>
+
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</nav>
+--%>

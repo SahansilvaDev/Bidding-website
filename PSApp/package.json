@@ -1,0 +1,7 @@
+{
+  "name": "Stock",
+  "version": "1.0.0",
+  "devDependencies": {
+    "socket.io-client": "^4.5.0"
+  }
+}
